@@ -5,6 +5,22 @@ import { cn } from '@/lib/utils';
 
 export const ScrollToTop = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Detect mobile devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    // Check on initial load
+    checkMobile();
+    
+    // Listen for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Show button when page is scrolled down
   const toggleVisibility = () => {
@@ -32,12 +48,13 @@ export const ScrollToTop = () => {
     <button
       onClick={scrollToTop}
       className={cn(
-        'fixed bottom-8 right-8 z-50 p-3 bg-[rgba(253,189,84,1)] rounded-full shadow-lg transition-all duration-300 hover:bg-[rgba(242,151,3,1)]',
-        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+        'fixed z-50 p-2 md:p-3 bg-[rgba(253,189,84,1)] rounded-full shadow-lg transition-all duration-300 hover:bg-[rgba(242,151,3,1)]',
+        isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-0',
+        isMobile ? 'bottom-4 right-4' : 'bottom-8 right-8'
       )}
       aria-label="Scroll to top"
     >
-      <ArrowUp className="h-6 w-6 text-black" />
+      <ArrowUp className={cn('text-black', isMobile ? 'h-5 w-5' : 'h-6 w-6')} />
     </button>
   );
 };

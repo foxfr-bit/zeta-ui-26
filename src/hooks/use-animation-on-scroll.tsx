@@ -40,5 +40,8 @@ export function useAnimationOnScroll({
     };
   }, [threshold, rootMargin, isInView]);
 
-  return { ref, isInView };
+  // Add a mobile detector for more customized animations
+  const isMobile = typeof window !== 'undefined' ? window.innerWidth < 768 : false;
+
+  return { ref, isInView, isMobile };
 }

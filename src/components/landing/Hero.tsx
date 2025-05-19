@@ -1,27 +1,28 @@
+
 import React from 'react';
 
 export const Hero = () => {
   return (
-    <section className="w-full max-w-[1190px] ml-[31px] mt-[141px] max-md:max-w-full max-md:mt-10">
-      <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
-        <div className="w-[46%] max-md:w-full max-md:ml-0">
-          <div className="self-stretch my-auto max-md:max-w-full max-md:mt-10">
-            <h1 className="text-black text-[55px] font-medium leading-[61px] tracking-[-0.55px] mr-[31px] max-md:max-w-full max-md:text-[40px] max-md:leading-[49px] max-md:mr-2.5">
+    <section className="w-full max-w-[1190px] mt-8 md:mt-16 lg:mt-[141px] px-4 md:px-8 lg:px-0">
+      <div className="gap-5 flex flex-col md:flex-row md:items-stretch">
+        <div className="w-full md:w-[46%]">
+          <div className="self-stretch my-auto">
+            <h1 className="text-black text-3xl md:text-4xl lg:text-[55px] font-medium leading-tight md:leading-[1.2] lg:leading-[61px] tracking-[-0.55px]">
               Effortlessly Manage Your Properties
             </h1>
-            <div className="w-full mt-[7px] pl-2 max-md:max-w-full">
-              <p className="text-black text-2xl font-normal leading-[1.4] max-md:max-w-full">
+            <div className="w-full mt-4 md:mt-[7px]">
+              <p className="text-black text-lg md:text-xl lg:text-2xl font-normal leading-[1.4]">
                 Reliable solutions for all your property needs.
               </p>
-              <div className="flex w-[303px] max-w-full items-stretch gap-5 justify-between mt-[30px]">
+              <div className="flex flex-wrap w-full md:w-auto max-w-full items-center gap-4 md:gap-5 mt-6 md:mt-[30px]">
                 <button
-                  className="self-stretch bg-[rgba(253,189,84,1)] gap-2.5 text-xl text-black font-normal leading-[1.4] px-[30px] py-[15px] rounded-xl max-md:px-5 hover:bg-[rgba(253,189,84,0.9)] transition-colors"
+                  className="bg-[rgba(253,189,84,1)] text-base md:text-xl text-black font-normal leading-[1.4] px-5 md:px-[30px] py-3 md:py-[15px] rounded-xl hover:bg-[rgba(253,189,84,0.9)] transition-colors"
                   onClick={() => console.log('Get Started clicked')}
                 >
                   Get Started
                 </button>
                 <button 
-                  className="flex items-center gap-2 text-[19px] text-[rgba(242,151,3,1)] font-medium leading-10 my-auto hover:text-[rgba(242,151,3,0.8)] transition-colors"
+                  className="flex items-center gap-2 text-base md:text-[19px] text-[rgba(242,151,3,1)] font-medium leading-normal md:leading-10 hover:text-[rgba(242,151,3,0.8)] transition-colors"
                   onClick={() => console.log('Learn more clicked')}
                 >
                   Learn more
@@ -35,11 +36,11 @@ export const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="w-[54%] ml-5 max-md:w-full max-md:ml-0">
+        <div className="w-full md:w-[54%] mt-8 md:mt-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets/TEMP/a11f54639588db6653932cf57208da471dfdc980?placeholderIfAbsent=true"
             alt="Property Management"
-            className="aspect-[1.15] object-contain w-full grow rounded-[73px] max-md:max-w-full max-md:mt-10"
+            className="aspect-[1.15] object-contain w-full rounded-[30px] md:rounded-[50px] lg:rounded-[73px]"
           />
         </div>
       </div>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface FeatureCardProps {
@@ -7,17 +8,17 @@ interface FeatureCardProps {
 }
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
-  <div className="w-3/12 max-md:w-full max-md:ml-0">
-    <div className="flex grow flex-col items-center text-black text-center max-md:mt-10">
+  <div className="w-full sm:w-6/12 md:w-3/12 px-3 mb-8 md:mb-0">
+    <div className="flex grow flex-col items-center text-black text-center">
       <img
         src={icon}
         alt={title}
-        className="aspect-[1] object-contain w-[103px] max-w-full rounded-[50%]"
+        className="aspect-[1] object-contain w-[80px] md:w-[103px] max-w-full rounded-[50%]"
       />
-      <h3 className="text-[25px] font-medium leading-[1.6] mt-2">
+      <h3 className="text-xl md:text-[25px] font-medium leading-[1.6] mt-2">
         {title}
       </h3>
-      <p className="text-lg font-normal leading-[22px] self-stretch">
+      <p className="text-base md:text-lg font-normal leading-[1.4] md:leading-[22px] self-stretch">
         {description}
       </p>
     </div>
@@ -49,13 +50,13 @@ export const AdditionalFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1078px] mt-[100px] max-md:max-w-full max-md:mt-10">
-      <h2 className="text-black text-4xl font-medium leading-[41px] text-center w-[693px] mx-auto mb-[100px] max-md:max-w-full max-md:mt-10">
+    <section className="w-full max-w-[1078px] mt-16 md:mt-24 lg:mt-[100px] px-4 md:px-6 lg:px-0">
+      <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-10 md:mb-16 lg:mb-[100px]">
         Zeta offers other features to simplify
-        <br />
+        <br className="hidden md:block" />
         your property management
       </h2>
-      <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
+      <div className="flex flex-wrap -mx-3">
         {features.map((feature, index) => (
           <FeatureCard key={index} {...feature} />
         ))}

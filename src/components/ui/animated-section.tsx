@@ -8,34 +8,43 @@ interface AnimatedSectionProps {
   className?: string;
   animation?: 'fade-up' | 'fade-left' | 'fade-right' | 'zoom-in';
   delay?: number;
+  mobileAnimation?: 'fade-up' | 'fade-left' | 'fade-right' | 'zoom-in' | 'none';
 }
 
 export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   children,
   className,
   animation = 'fade-up',
-  delay = 0
+  delay = 0,
+  mobileAnimation
 }) => {
-  const { ref, isInView } = useAnimationOnScroll({ threshold: 0.1 });
+  const { ref, isInView, isMobile } = useAnimationOnScroll({ threshold: 0.1 });
+  
+  // If mobileAnimation is specified, use it on mobile devices, otherwise use the default animation
+  const effectiveAnimation = isMobile && mobileAnimation ? mobileAnimation : animation;
 
   const getAnimationClass = () => {
-    switch (animation) {
+    if (isMobile && mobileAnimation === 'none') {
+      return isInView ? 'opacity-100' : 'opacity-0';
+    }
+    
+    switch (effectiveAnimation) {
       case 'fade-up':
         return isInView 
           ? 'opacity-100 translate-y-0' 
-          : 'opacity-0 translate-y-16';
+          : 'opacity-0 translate-y-10'; // Reduced vertical travel on mobile
       case 'fade-left':
         return isInView 
           ? 'opacity-100 translate-x-0' 
-          : 'opacity-0 translate-x-16';
+          : 'opacity-0 translate-x-8'; // Reduced horizontal travel on mobile
       case 'fade-right':
         return isInView 
           ? 'opacity-100 translate-x-0' 
-          : 'opacity-0 -translate-x-16';
+          : 'opacity-0 -translate-x-8'; // Reduced horizontal travel on mobile
       case 'zoom-in':
         return isInView 
           ? 'opacity-100 scale-100' 
-          : 'opacity-0 scale-90';
+          : 'opacity-0 scale-95'; // Less dramatic scale on mobile
       default:
         return isInView 
           ? 'opacity-100' 
@@ -43,13 +52,18 @@ export const AnimatedSection: React.FC<AnimatedSectionProps> = ({
     }
   };
 
+  const delayClass = delay > 0 
+    ? `delay-[${delay}ms]` 
+    : isMobile ? 'delay-[100ms]' : ''; // Use shorter delay on mobile
+
   return (
     <div
       ref={ref}
       className={cn(
         getAnimationClass(),
-        'transition-all duration-700',
-        delay && `delay-[${delay}ms]`,
+        'transition-all',
+        isMobile ? 'duration-500' : 'duration-700', // Faster transitions on mobile
+        delayClass,
         className
       )}
     >

@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface RoleCardProps {
@@ -7,17 +8,17 @@ interface RoleCardProps {
 }
 
 const RoleCard: React.FC<RoleCardProps> = ({ image, title, description }) => (
-  <div className="w-3/12 max-md:w-full max-md:ml-0">
-    <div className="flex grow flex-col items-stretch text-black text-center max-md:mt-10">
+  <div className="w-full sm:w-6/12 md:w-3/12 px-2 mb-8 md:mb-0">
+    <div className="flex grow flex-col items-stretch text-black text-center">
       <img
         src={image}
         alt={title}
         className="aspect-[1.01] object-contain w-full rounded-2xl"
       />
-      <h3 className="text-[25px] font-medium leading-loose self-center mt-[13px]">
+      <h3 className="text-xl md:text-[25px] font-medium leading-loose self-center mt-2 md:mt-[13px]">
         {title}
       </h3>
-      <p className="text-base font-light leading-[23px]">
+      <p className="text-sm md:text-base font-light leading-[1.5] md:leading-[23px]">
         {description}
       </p>
     </div>
@@ -49,11 +50,11 @@ export const RoleFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1110px] mt-[68px] max-md:max-w-full max-md:mt-10">
-      <h2 className="text-black text-4xl font-medium leading-[41px] text-center w-[693px] mx-auto mb-[68px] max-md:max-w-full max-md:mt-10">
+    <section className="w-full max-w-[1110px] mt-12 md:mt-[68px] px-4 md:px-6 lg:px-0">
+      <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-8 md:mb-[68px]">
         A solution with tools and features designed for your role
       </h2>
-      <div className="gap-5 flex max-md:flex-col max-md:items-stretch">
+      <div className="flex flex-wrap -mx-2">
         {roles.map((role, index) => (
           <RoleCard key={index} {...role} />
         ))}
