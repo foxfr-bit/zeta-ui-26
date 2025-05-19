@@ -1,3 +1,4 @@
+
 import React from 'react';
 
 interface ProductFeatureProps {
@@ -22,14 +23,14 @@ export const ProductFeature: React.FC<ProductFeatureProps> = ({
         {description}
       </p>
       <button 
-        className="flex items-stretch gap-[7px] text-base text-[rgba(242,151,3,1)] mt-3.5 hover:text-[rgba(242,151,3,0.8)] transition-colors"
+        className="flex items-stretch gap-[7px] text-base text-[rgba(242,151,3,1)] mt-3.5 hover:text-[rgba(242,151,3,0.8)] transition-colors group"
         onClick={() => console.log('Learn more clicked')}
       >
         <span className="grow">Learn more</span>
         <img
           src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e3a8c081a04b858fcd0bc734a24c44acf039b54?placeholderIfAbsent=true"
           alt="Arrow right"
-          className="aspect-[1] object-contain w-2.5 shrink-0 my-auto"
+          className="aspect-[1] object-contain w-2.5 shrink-0 my-auto transition-transform group-hover:translate-x-1"
         />
       </button>
     </div>
@@ -39,7 +40,7 @@ export const ProductFeature: React.FC<ProductFeatureProps> = ({
     <img
       src={image}
       alt={title}
-      className="aspect-[1.04] object-contain w-full shadow-[0px_0px_15px_6px_rgba(0,0,0,0.08)] grow rounded-[30px] max-md:max-w-full max-md:mt-10"
+      className="aspect-[1.04] object-contain w-full shadow-[0px_0px_15px_6px_rgba(0,0,0,0.08)] grow rounded-[30px] max-md:max-w-full max-md:mt-10 hover:shadow-[0px_0px_20px_8px_rgba(0,0,0,0.1)] transition-shadow duration-300"
     />
   );
 
