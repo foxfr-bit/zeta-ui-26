@@ -1,10 +1,9 @@
-
 import React from 'react';
 
 export const Footer = () => {
   return (
     <footer className="bg-[rgba(241,235,222,1)] self-stretch flex w-full flex-col items-center mt-20 md:mt-32 lg:mt-[159px] pt-10 md:pt-[50px] pb-6 md:pb-[31px]">
-      <div className="w-full max-w-[1261px] px-4 md:px-6 lg:px-0">
+      <div className="w-full max-w-[1261px] px-4 md:px-6 lg:px-10">
         <div className="gap-6 md:gap-5 flex flex-col md:flex-row">
           <div className="w-full md:w-[38%]">
             <div className="text-base text-black font-light leading-[1.6] md:leading-[27px]">

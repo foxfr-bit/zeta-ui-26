@@ -11,7 +11,7 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 
 const Index = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center pt-10 px-4 md:px-6 lg:px-0">
+    <div className="bg-white flex flex-col overflow-hidden items-center pt-10 px-4 md:px-6 lg:px-8">
       <Header />
       
       <main className="w-full">

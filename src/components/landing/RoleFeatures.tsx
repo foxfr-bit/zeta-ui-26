@@ -8,7 +8,7 @@ interface RoleCardProps {
 }
 
 const RoleCard: React.FC<RoleCardProps> = ({ image, title, description }) => (
-  <div className="w-full sm:w-6/12 md:w-3/12 px-2 mb-8 md:mb-0">
+  <div className="w-full sm:w-6/12 md:w-3/12 px-3 mb-8 md:mb-0">
     <div className="flex grow flex-col items-stretch text-black text-center">
       <img
         src={image}
@@ -50,11 +50,11 @@ export const RoleFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1110px] mt-12 md:mt-[68px] px-4 md:px-6 lg:px-0">
+    <section className="w-full max-w-[1110px] mt-12 md:mt-[68px] px-4 md:px-6 lg:px-10">
       <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-8 md:mb-[68px]">
         A solution with tools and features designed for your role
       </h2>
-      <div className="flex flex-wrap -mx-2">
+      <div className="flex flex-wrap -mx-3">
         {roles.map((role, index) => (
           <RoleCard key={index} {...role} />
         ))}

@@ -45,8 +45,8 @@ export const ProductFeature: React.FC<ProductFeatureProps> = ({
   );
 
   return (
-    <section className="w-full max-w-[1049px] mt-16 md:mt-24 lg:mt-[167px] px-4 md:px-6 lg:px-0">
-      <div className="gap-8 md:gap-5 flex flex-col md:flex-row">
+    <section className="w-full max-w-[1049px] mt-16 md:mt-24 lg:mt-[167px] px-4 md:px-6 lg:px-12">
+      <div className="gap-8 md:gap-12 flex flex-col md:flex-row">
         {imagePosition === 'left' ? (
           <>
             <div className="w-full md:w-3/5">

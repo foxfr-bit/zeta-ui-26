@@ -3,7 +3,7 @@ import React from 'react';
 
 export const Hero = () => {
   return (
-    <section className="w-full max-w-[1190px] mt-8 md:mt-16 lg:mt-[141px] px-4 md:px-8 lg:px-0">
+    <section className="w-full max-w-[1190px] mt-8 md:mt-16 lg:mt-[141px] px-4 md:px-8 lg:px-12">
       <div className="gap-5 flex flex-col md:flex-row md:items-stretch">
         <div className="w-full md:w-[46%]">
           <div className="self-stretch my-auto">

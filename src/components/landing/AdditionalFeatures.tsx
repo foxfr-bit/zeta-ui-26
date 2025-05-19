@@ -50,7 +50,7 @@ export const AdditionalFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1078px] mt-16 md:mt-24 lg:mt-[100px] px-4 md:px-6 lg:px-0">
+    <section className="w-full max-w-[1078px] mt-16 md:mt-24 lg:mt-[100px] px-4 md:px-6 lg:px-10">
       <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-10 md:mb-16 lg:mb-[100px]">
         Zeta offers other features to simplify
         <br className="hidden md:block" />

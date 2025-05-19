@@ -10,7 +10,7 @@ export const Header = () => {
   };
 
   return (
-    <nav className="flex w-full max-w-[1275px] items-center gap-5 font-normal leading-[1.4] flex-wrap justify-between px-4 md:px-6 lg:px-0">
+    <nav className="flex w-full max-w-[1275px] items-center gap-5 font-normal leading-[1.4] flex-wrap justify-between px-4 md:px-6 lg:px-8">
       <img
         src="https://cdn.builder.io/api/v1/image/assets/TEMP/9690298b4295abdafb845c844373f837834a4d72?placeholderIfAbsent=true"
         alt="Zeta Logo"
