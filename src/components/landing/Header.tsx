@@ -24,7 +24,11 @@ export const Header = () => {
           className="p-2 text-black"
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? (
+            <X size={24} className="text-[#F97316] hover:text-[#e05e07] transition-colors" />
+          ) : (
+            <Menu size={24} />
+          )}
         </button>
       </div>
       
