@@ -45,20 +45,20 @@ export const ProductFeature: React.FC<ProductFeatureProps> = ({
   );
 
   return (
-    <section className="w-full max-w-[1049px] mt-16 md:mt-24 lg:mt-[167px] px-4 md:px-6 lg:px-12">
-      <div className="gap-8 md:gap-12 flex flex-col md:flex-row">
+    <section className="w-full max-w-[1049px] mt-16 md:mt-24 lg:mt-[167px] px-4 md:px-6 lg:px-16 xl:px-20">
+      <div className="gap-8 md:gap-12 lg:gap-16 flex flex-col md:flex-row">
         {imagePosition === 'left' ? (
           <>
             <div className="w-full md:w-3/5">
               {imageElement}
             </div>
-            <div className="w-full md:w-2/5">
+            <div className="w-full md:w-2/5 md:pl-4 lg:pl-8">
               {content}
             </div>
           </>
         ) : (
           <>
-            <div className="w-full md:w-6/12 order-2 md:order-1">
+            <div className="w-full md:w-6/12 order-2 md:order-1 md:pr-4 lg:pr-8">
               {content}
             </div>
             <div className="w-full md:w-6/12 order-1 md:order-2">
