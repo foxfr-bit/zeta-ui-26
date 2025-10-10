@@ -11,15 +11,15 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 
 const Index = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden items-center pt-10 px-4 md:px-6 lg:px-8">
+    <div className="bg-white flex flex-col overflow-hidden max-w-dvw items-center pt-10 px-4 md:px-6 lg:px-8">
       <Header />
       
-      <main className="w-full">
+      <main className="w-full max-w-[1203px]">
         <AnimatedSection>
           <Hero />
         </AnimatedSection>
         
-        <div className="border w-full max-w-[1203px] shrink-0 h-0 mt-16 md:mt-[102px] border-[rgba(253,189,84,1)] border-solid" />
+        <div className="border w-full shrink-0 h-0 mt-16 md:mt-[102px] border-[rgba(253,189,84,1)] border-solid" />
         
         <AnimatedSection animation="fade-up" delay={200} mobileAnimation="fade-up">
           <RoleFeatures />
