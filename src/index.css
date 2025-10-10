@@ -2,6 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Belbo Font Face Declarations */
+@font-face {
+  font-family: 'Belbo';
+  src: url('/font/Belbo-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Belbo';
+  src: url('/font/Belbo-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Belbo';
+  src: url('/font/Belbo-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Belbo';
+  src: url('/font/Belbo-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -97,5 +130,6 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Belbo', ui-sans-serif, system-ui, sans-serif;
   }
 }

@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface FeatureCardProps {
   icon: string;
@@ -9,19 +10,43 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => (
   <div className="w-full sm:w-6/12 md:w-3/12 px-3 mb-8 md:mb-0">
-    <div className="flex grow flex-col items-center text-black text-center">
-      <img
+    <motion.div 
+      className="flex grow flex-col items-center text-black text-center cursor-pointer"
+      whileHover={{ 
+        scale: 1.05,
+        y: -10,
+      }}
+      transition={{ 
+        duration: 0.3,
+        ease: "easeOut"
+      }}
+    >
+      <motion.img
         src={icon}
         alt={title}
         className="aspect-[1] object-contain w-[80px] md:w-[103px] max-w-full rounded-[50%]"
+        whileHover={{ 
+          rotate: [0, -10, 10, 0],
+          scale: 1.1
+        }}
+        transition={{ 
+          duration: 0.5,
+          ease: "easeInOut"
+        }}
       />
-      <h3 className="text-xl md:text-[25px] font-medium leading-[1.6] mt-2">
+      <motion.h3 
+        className="text-xl md:text-[25px] font-medium leading-[1.6] mt-2"
+        whileHover={{ 
+          color: "#F29703"
+        }}
+        transition={{ duration: 0.2 }}
+      >
         {title}
-      </h3>
+      </motion.h3>
       <p className="text-base md:text-lg font-normal leading-[1.4] md:leading-[22px] self-stretch">
         {description}
       </p>
-    </div>
+    </motion.div>
   </div>
 );
 
@@ -50,8 +75,8 @@ export const AdditionalFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1078px] mt-16 md:mt-24 lg:mt-[100px] px-4 md:px-6 lg:px-10">
-      <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-10 md:mb-16 lg:mb-[100px]">
+    <section className="w-full max-w-[1078px] pt-20 md:pt-32 lg:pt-[130px] pb-20 md:pb-32 lg:pb-[20px] px-2 md:px-3 lg:px-4">
+      <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-4 md:mb-16 lg:mb-[100px]">
         Zeta offers other features to simplify
         <br className="hidden md:block" />
         your property management

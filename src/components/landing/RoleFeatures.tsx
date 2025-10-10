@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface RoleCardProps {
   image: string;
@@ -9,19 +10,42 @@ interface RoleCardProps {
 
 const RoleCard: React.FC<RoleCardProps> = ({ image, title, description }) => (
   <div className="w-full sm:w-6/12 md:w-3/12 px-3 mb-8 md:mb-0">
-    <div className="flex grow flex-col items-stretch text-black text-center">
-      <img
+    <motion.div 
+      className="flex grow flex-col items-stretch text-black text-center cursor-pointer"
+      whileHover={{ 
+        scale: 1.05,
+        y: -5,
+      }}
+      transition={{ 
+        duration: 0.3,
+        ease: "easeOut"
+      }}
+    >
+      <motion.img
         src={image}
         alt={title}
         className="aspect-[1.01] object-contain w-full rounded-2xl"
+        whileHover={{ 
+          scale: 1.1
+        }}
+        transition={{ 
+          duration: 0.3,
+          ease: "easeOut"
+        }}
       />
-      <h3 className="text-xl md:text-[25px] font-medium leading-loose self-center mt-2 md:mt-[13px]">
+      <motion.h3 
+        className="text-xl md:text-[25px] font-medium leading-loose self-center mt-2 md:mt-[13px]"
+        whileHover={{ 
+          color: "#F29703"
+        }}
+        transition={{ duration: 0.2 }}
+      >
         {title}
-      </h3>
+      </motion.h3>
       <p className="text-sm md:text-base font-light leading-[1.5] md:leading-[23px]">
         {description}
       </p>
-    </div>
+    </motion.div>
   </div>
 );
 
@@ -50,7 +74,7 @@ export const RoleFeatures = () => {
   ];
 
   return (
-    <section className="w-full max-w-[1110px] mt-12 md:mt-[68px] px-4 md:px-6 lg:px-10">
+    <section className="w-full max-w-[1110px] pt-16 md:pt-[88px] pb-16 md:pb-[88px] px-2 md:px-3 lg:px-4">
       <h2 className="text-black text-2xl md:text-3xl lg:text-4xl font-medium leading-tight md:leading-[41px] text-center mx-auto mb-8 md:mb-[68px]">
         A solution with tools and features designed for your role
       </h2>

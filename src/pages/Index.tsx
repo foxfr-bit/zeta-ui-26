@@ -11,7 +11,7 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 
 const Index = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden max-w-dvw items-center pt-10 px-4 md:px-6 lg:px-8">
+    <div className="bg-white flex flex-col overflow-hidden max-w-dvw items-center pt-10 px-2 md:px-3 lg:px-4">
       <Header />
       
       <main className="w-full max-w-[1203px]">
@@ -29,6 +29,7 @@ const Index = () => {
         
         <AnimatedSection animation="fade-left" mobileAnimation="fade-up">
           <ProductFeature
+            label="Management"
             title="Manage your all kind of properties with ease"
             description="No need to waste time tracking down rent payments. Give tenants a flexible, easy way to pay online"
             image="https://cdn.builder.io/api/v1/image/assets/TEMP/0db097d3513615a8df5efb1e06f0a7664fe772ec?placeholderIfAbsent=true"
@@ -38,6 +39,7 @@ const Index = () => {
         
         <AnimatedSection animation="fade-right" delay={100} mobileAnimation="fade-up">
           <ProductFeature
+            label="Leasing"
             title="Quickly screen and onboard tenants with minimal effort"
             description="Collect applications, run background checks, and sign lease agreements in time for moving day."
             image="https://cdn.builder.io/api/v1/image/assets/TEMP/0251a5595d25c232448dff4775a60bb85f057269?placeholderIfAbsent=true"
@@ -47,6 +49,7 @@ const Index = () => {
         
         <AnimatedSection animation="fade-left" delay={100} mobileAnimation="fade-up">
           <ProductFeature
+            label="Accounting"
             title="Effortlessly handle your accounting details"
             description="Set up invoices, send receipts, and create financial reports so you can track every last penny."
             image="https://cdn.builder.io/api/v1/image/assets/TEMP/a7f4decbf61d6692948cfc3a73741819de459e2c?placeholderIfAbsent=true"
@@ -56,6 +59,7 @@ const Index = () => {
         
         <AnimatedSection animation="fade-right" delay={100} mobileAnimation="fade-up">
           <ProductFeature
+            label="Maintenance"
             title="Swiftly manage maintenance requests and vendors"
             description="Stay on top of all your maintenance needs with our simple, online portal."
             image="https://cdn.builder.io/api/v1/image/assets/TEMP/0251a5595d25c232448dff4775a60bb85f057269?placeholderIfAbsent=true"

@@ -3,7 +3,7 @@ import React from 'react';
 export const Footer = () => {
   return (
     <footer className="bg-[rgba(241,235,222,1)] self-stretch flex w-full flex-col items-center mt-20 md:mt-32 lg:mt-[159px] pt-10 md:pt-[50px] pb-6 md:pb-[31px]">
-      <div className="w-full max-w-[1261px] px-1 md:px-6 lg:px-10">
+      <div className="w-full max-w-[1261px] px-2 md:px-3 lg:px-4">
         <div className="gap-8 md:gap-5 flex flex-col md:flex-row">
           <div className="w-full md:w-[40%] md:grid-cols-1 gap-x-4">
             <div className="text-base text-black font-light leading-[1.6] md:leading-[27px]">

@@ -2,6 +2,7 @@
 import React from 'react';
 
 interface ProductFeatureProps {
+  label?: string;
   title: string;
   description: string;
   image: string;
@@ -9,59 +10,70 @@ interface ProductFeatureProps {
 }
 
 export const ProductFeature: React.FC<ProductFeatureProps> = ({
+  label,
   title,
   description,
   image,
   imagePosition = 'left'
 }) => {
   const content = (
-    <div className="flex w-full flex-col self-stretch text-black font-medium my-auto">
-      <h3 className="text-2xl md:text-[28px] lg:text-[32px] leading-tight md:leading-10">
+    <div className="flex flex-col justify-center">
+      {label && (
+        <div className="text-[#F29703] text-base font-medium mb-4">
+          {label}
+        </div>
+      )}
+      <h2 className="text-black text-2xl font-bold leading-tight mb-6">
         {title}
-      </h3>
-      <p className="text-lg md:text-xl lg:text-2xl font-normal mt-4 md:mt-[23px]">
+      </h2>
+      <p className="text-black text-lg md:text-xl leading-relaxed mb-6">
         {description}
       </p>
       <button 
-        className="flex items-stretch gap-[7px] text-sm md:text-base text-[rgba(242,151,3,1)] mt-3 md:mt-3.5 hover:text-[rgba(242,151,3,0.8)] transition-colors group"
+        className="flex items-center gap-2 text-[#F29703] text-base font-medium hover:text-[#e08a02] transition-colors group w-fit"
         onClick={() => console.log('Learn more clicked')}
       >
-        <span className="grow">Learn more</span>
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/9e3a8c081a04b858fcd0bc734a24c44acf039b54?placeholderIfAbsent=true"
-          alt="Arrow right"
-          className="aspect-[1] object-contain w-2.5 shrink-0 my-auto transition-transform group-hover:translate-x-1"
-        />
+        <span>Learn more</span>
+        <svg 
+          className="w-4 h-4 transition-transform group-hover:translate-x-1" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
     </div>
   );
 
   const imageElement = (
-    <img
-      src={image}
-      alt={title}
-      className="aspect-[1.04] object-contain w-full shadow-[0px_0px_10px_4px_rgba(0,0,0,0.06)] md:shadow-[0px_0px_15px_6px_rgba(0,0,0,0.08)] grow rounded-[20px] md:rounded-[30px] hover:shadow-[0px_0px_20px_8px_rgba(0,0,0,0.1)] transition-shadow duration-300"
-    />
+    <div className="relative">
+      <img
+        src={image}
+        alt={title}
+        className="w-full h-auto object-contain rounded-3xl"
+      />
+    </div>
   );
 
   return (
-    <section className="w-full max-w-[1049px] mt-16 md:mt-24 lg:mt-[167px] px-4 md:px-6 lg:px-16 xl:px-20">
-      <div className="gap-8 md:gap-12 lg:gap-16 flex flex-col md:flex-row">
+    <section className="w-full max-w-7xl mx-auto px-2 md:px-4 pt-40 md:pt-40 pb-16 md:pb-24">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
         {imagePosition === 'left' ? (
           <>
-            <div className="w-full md:w-3/5">
+            <div className="order-2 lg:order-1">
               {imageElement}
             </div>
-            <div className="w-full md:w-2/5 md:pl-4 lg:pl-8">
+            <div className="order-1 lg:order-2">
               {content}
             </div>
           </>
         ) : (
           <>
-            <div className="w-full md:w-6/12 order-2 md:order-1 md:pr-4 lg:pr-8">
+            <div className="order-1">
               {content}
             </div>
-            <div className="w-full md:w-6/12 order-1 md:order-2">
+            <div className="order-2">
               {imageElement}
             </div>
           </>
