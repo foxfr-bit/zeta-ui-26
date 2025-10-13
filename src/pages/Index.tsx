@@ -11,8 +11,9 @@ import { AnimatedSection } from '@/components/ui/animated-section';
 
 const Index = () => {
   return (
-    <div className="bg-white flex flex-col overflow-hidden max-w-dvw items-center pt-10 px-2 md:px-3 lg:px-4">
+    <div className="bg-white min-h-screen">
       <Header />
+      <div className="flex flex-col items-center px-2 md:px-3 lg:px-4 pt-10">
       
       <main className="w-full max-w-[1203px]">
         <AnimatedSection>
@@ -72,7 +73,13 @@ const Index = () => {
         <AnimatedSection animation="zoom-in" delay={150} mobileAnimation="fade-up">
           <AdditionalFeatures />
         </AnimatedSection>
+        
+        {/* Temporary content to test sticky header - remove after testing */}
+        <div className="h-[200vh] bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center">
+          <p className="text-gray-600 text-lg">Scroll up to test sticky header behavior</p>
+        </div>
       </main>
+      </div>
       
       <Footer />
       <ScrollToTop />
