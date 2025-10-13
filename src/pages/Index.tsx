@@ -74,10 +74,7 @@ const Index = () => {
           <AdditionalFeatures />
         </AnimatedSection>
         
-        {/* Temporary content to test sticky header - remove after testing */}
-        <div className="h-[200vh] bg-gradient-to-b from-gray-50 to-gray-100 flex items-center justify-center">
-          <p className="text-gray-600 text-lg">Scroll up to test sticky header behavior</p>
-        </div>
+       
       </main>
       </div>
       

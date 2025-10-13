@@ -67,7 +67,7 @@ export const Header = () => {
         </button>
         <button
           className="self-stretch bg-black gap-2.5 text-white px-4 py-3 rounded-xl hover:bg-gray-800 transition-colors"
-          onClick={() => console.log('Sign Up clicked')}
+          onClick={() => navigate('/signup')}
         >
           Sign Up
         </button>
@@ -121,7 +121,7 @@ export const Header = () => {
               <button
                 className="w-full text-center bg-black text-white py-3 rounded-xl hover:bg-gray-800 transition-colors"
                 onClick={() => {
-                  console.log('Sign Up clicked');
+                  navigate('/signup');
                   setMobileMenuOpen(false);
                 }}
               >

@@ -67,14 +67,18 @@ const Login = () => {
       {/* Main Login Content */}
       <div className="flex w-full items-center px-2 md:px-3 lg:px-4 min-h-[calc(100vh-80px)]">
         {/* Left side - Image */}
-              <div className="flex-1 relative p-8 left-[side] max-md:hidden">
+      <motion.div 
+        initial={{ opacity: 0, x: -100 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        className="flex-1 relative p-8 left-[side] max-md:hidden"
+      >
         <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/6ad5256bc948ba781e21dce69f8bdc07f3f00754"
+          src="/zetaimg.png"
           className="w-full h-[calc(100%_-_64px)] object-cover"
           alt="Login background"
         />
-    
-      </div>
+      </motion.div>
 
         {/* Right side - Login form */}
         <div className="w-full lg:w-1/2 flex items-center justify-center p-8 bg-white">
@@ -238,7 +242,7 @@ const Login = () => {
             {/* Sign up link */}
             <div className="text-center">
               <span className="text-gray-600">Don't have an account? </span>
-              <a href="#" className="text-orange-500 hover:text-orange-600 font-medium">
+              <a href="/signup" className="text-orange-500 hover:text-orange-600 font-medium">
                 Create one
               </a>
             </div>
