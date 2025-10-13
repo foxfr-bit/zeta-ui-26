@@ -51,7 +51,7 @@ export const ProductFeature: React.FC<ProductFeatureProps> = ({
       <img
         src={image}
         alt={title}
-        className="w-full h-auto object-contain rounded-3xl"
+        className="w-full h-auto object-contain rounded-[30px]"
       />
     </div>
   );
