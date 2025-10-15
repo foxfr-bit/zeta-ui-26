@@ -39,8 +39,15 @@ const Login = () => {
       // For demo purposes, accept any email/password combination
       console.log('Login successful:', { email, password, rememberMe });
       
-      // Navigate to home page after successful login
-      navigate('/');
+      // Check if user has already selected a role
+      const userRole = localStorage.getItem('userRole');
+      
+      // Navigate to onboarding if first-time user, otherwise go to home
+      if (!userRole) {
+        navigate('/onboarding');
+      } else {
+        navigate('/');
+      }
     } catch (err) {
       setError('Login failed. Please try again.');
     } finally {
@@ -228,7 +235,7 @@ const Login = () => {
                 Continue with Google
               </motion.button>
 
-              <motion.button
+              {/* <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 type="button"
@@ -242,7 +249,7 @@ const Login = () => {
                   />
                 </svg>
                 Continue with Apple
-              </motion.button>
+              </motion.button> */}
             </div>
 
             {/* Sign up link */}

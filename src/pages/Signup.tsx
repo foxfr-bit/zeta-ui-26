@@ -77,8 +77,8 @@ const Signup = () => {
       
       console.log('Signup successful:', formData);
       
-      // Navigate to login page or dashboard after successful signup
-      navigate('/login');
+      // Navigate to onboarding page for first-time users to select their role
+      navigate('/onboarding');
     } catch (err) {
       setError('Signup failed. Please try again.');
     } finally {
