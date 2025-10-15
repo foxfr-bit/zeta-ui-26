@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Home, Users, Wrench } from 'lucide-react';
+import { Header } from '../components/landing/Header';
+import { Footer } from '../components/landing/Footer';
 
 interface Role {
   id: string;
@@ -51,13 +53,16 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center px-4 py-8">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="w-full max-w-4xl"
-      >
+    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+      <Header />
+      
+      <div className="flex items-center justify-center px-4 py-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="w-full max-w-4xl"
+        >
         {/* Header */}
         <div className="text-center mb-12">
           <motion.h1
@@ -160,7 +165,10 @@ const Onboarding = () => {
             Next
           </motion.button>
         </motion.div>
-      </motion.div>
+        </motion.div>
+      </div>
+      
+      <Footer />
     </div>
   );
 };
