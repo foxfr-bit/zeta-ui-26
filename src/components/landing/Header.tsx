@@ -54,7 +54,7 @@ export const Header = () => {
         <button onClick={() => navigate('/home')} className="hover:text-gray-600 transition-colors">Home</button>
         <a href="#about" className="hover:text-gray-600 transition-colors">About Us</a>
         <button onClick={() => navigate('/services')} className="hover:text-gray-600 transition-colors">Services</button>
-        <a href="#contact" className="hover:text-gray-600 transition-colors">Contact</a>
+        <button onClick={() => navigate('/contact')} className="hover:text-gray-600 transition-colors">Contact</button>
       </div>
       
       {/* Desktop auth buttons */}
@@ -102,13 +102,15 @@ export const Header = () => {
             >
               Services
             </button>
-            <a 
-              href="#contact" 
-              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            <button 
+              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors text-left"
+              onClick={() => {
+                navigate('/contact');
+                setMobileMenuOpen(false);
+              }}
             >
               Contact
-            </a>
+            </button>
             
             <div className="flex flex-col pt-4 space-y-3">
               <button

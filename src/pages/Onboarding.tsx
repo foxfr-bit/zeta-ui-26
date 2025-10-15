@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Home, Users, Wrench, Building2 } from 'lucide-react';
+import { Home, Users, Wrench, Building2, CheckCircle2, Shield, Clock } from 'lucide-react';
 import { Header } from '../components/landing/Header';
 import { Footer } from '../components/landing/Footer';
 
@@ -53,10 +53,14 @@ const Onboarding = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-gray-100 min-h-screen">
+    <div className="bg-white min-h-screen">
       <Header />
       
-      <div className="flex items-center justify-center px-4 py-12">
+      {/* Decorative Background Elements */}
+      <div className="absolute top-20 right-0 w-96 h-96 rounded-full opacity-5" style={{ backgroundColor: '#FDBD54' }} />
+      <div className="absolute bottom-20 left-0 w-72 h-72 rounded-full opacity-5" style={{ backgroundColor: '#FDBD54' }} />
+      
+      <div className="relative flex items-center justify-center px-4" style={{ paddingTop: '10%', paddingBottom: '10%' }}>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -65,11 +69,22 @@ const Onboarding = () => {
         >
         {/* Header */}
         <div className="text-center mb-12">
+          {/* Progress Indicator */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1, duration: 0.5 }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 mb-6"
+          >
+            <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FDBD54' }} />
+            <span className="text-sm font-medium text-gray-700">Step 1 of 2</span>
+          </motion.div>
+
           <motion.h1
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-4xl font-bold text-gray-900 mb-3"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4"
           >
             Select your role
           </motion.h1>
@@ -77,9 +92,9 @@ const Onboarding = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3, duration: 0.5 }}
-            className="text-gray-600 text-lg"
+            className="text-gray-600 text-lg md:text-xl max-w-2xl mx-auto"
           >
-            Select the role that suits your preferences
+            Choose the role that best describes you to get a personalized experience
           </motion.p>
         </div>
 
@@ -145,11 +160,50 @@ const Onboarding = () => {
           ))}
         </div>
 
+        {/* Benefits Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="bg-gray-50 rounded-2xl p-8 mb-8"
+        >
+          <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">Why Choose Zeta?</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FDBD54' }}>
+                <CheckCircle2 className="w-5 h-5 text-gray-900" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">Easy Setup</h4>
+                <p className="text-sm text-gray-600">Get started in minutes with our intuitive onboarding</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FDBD54' }}>
+                <Shield className="w-5 h-5 text-gray-900" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">Secure & Reliable</h4>
+                <p className="text-sm text-gray-600">Your data is protected with enterprise-grade security</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#FDBD54' }}>
+                <Clock className="w-5 h-5 text-gray-900" />
+              </div>
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-1">24/7 Support</h4>
+                <p className="text-sm text-gray-600">Our team is always here to help you succeed</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* Property Owner Text */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.7, duration: 0.5 }}
+          transition={{ delay: 0.8, duration: 0.5 }}
           className="text-center mb-8"
         >
           <p className="text-gray-600 text-sm">
@@ -172,21 +226,24 @@ const Onboarding = () => {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 0.8, duration: 0.5 }}
-          className="flex justify-center"
+          transition={{ delay: 0.9, duration: 0.5 }}
+          className="flex flex-col items-center gap-4"
         >
           <motion.button
             whileHover={{ scale: selectedRole ? 1.05 : 1 }}
             whileTap={{ scale: selectedRole ? 0.95 : 1 }}
             onClick={handleNext}
             disabled={!selectedRole}
-            className="px-12 py-3 rounded-xl font-medium text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+            className="px-16 py-4 rounded-xl font-semibold text-gray-900 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg text-lg"
             style={{
               backgroundColor: selectedRole ? '#FDBD54' : '#D1D5DB',
             }}
           >
-            Next
+            Continue
           </motion.button>
+          {!selectedRole && (
+            <p className="text-sm text-gray-500">Please select a role to continue</p>
+          )}
         </motion.div>
         </motion.div>
       </div>
