@@ -306,11 +306,23 @@ const Signup = () => {
                   />
                   <span className="ml-2 text-sm text-gray-700">
                     I agree to the{' '}
-                    <a href="#" className="text-orange-500 hover:text-orange-600 font-medium">
+                    <a 
+                      href="#" 
+                      className="font-medium"
+                      style={{ color: '#FDBD54' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#E6A84A'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#FDBD54'}
+                    >
                       Terms of Use
                     </a>{' '}
                     and{' '}
-                    <a href="#" className="text-orange-500 hover:text-orange-600 font-medium">
+                    <a 
+                      href="#" 
+                      className="font-medium"
+                      style={{ color: '#FDBD54' }}
+                      onMouseEnter={(e) => e.currentTarget.style.color = '#E6A84A'}
+                      onMouseLeave={(e) => e.currentTarget.style.color = '#FDBD54'}
+                    >
                       Privacy Policy
                     </a>
                   </span>
@@ -352,7 +364,10 @@ const Signup = () => {
                 <button
                   type="button"
                   onClick={() => navigate('/login')}
-                  className="text-orange-500 hover:text-orange-600 font-medium"
+                  className="font-medium"
+                  style={{ color: '#FDBD54' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#E6A84A'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = '#FDBD54'}
                 >
                   Log in
                 </button>

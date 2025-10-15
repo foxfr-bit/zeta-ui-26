@@ -159,7 +159,13 @@ const Login = () => {
                 />
                 <span className="ml-2 text-sm text-gray-700">Remember me for 30 days</span>
               </label>
-              <a href="#" className="text-sm text-orange-500 hover:text-orange-600 font-medium">
+              <a 
+                href="#" 
+                className="text-sm font-medium"
+                style={{ color: '#FDBD54' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#E6A84A'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#FDBD54'}
+              >
                 Forgot your password
               </a>
             </div>
@@ -242,7 +248,13 @@ const Login = () => {
             {/* Sign up link */}
             <div className="text-center">
               <span className="text-gray-600">Don't have an account? </span>
-              <a href="/signup" className="text-orange-500 hover:text-orange-600 font-medium">
+              <a 
+                href="/signup" 
+                className="font-medium"
+                style={{ color: '#FDBD54' }}
+                onMouseEnter={(e) => e.currentTarget.style.color = '#E6A84A'}
+                onMouseLeave={(e) => e.currentTarget.style.color = '#FDBD54'}
+              >
                 Create one
               </a>
             </div>

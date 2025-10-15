@@ -77,7 +77,7 @@ export const Hero = () => {
                 variants={containerVariants}
               >
                 <motion.button
-                  className="bg-[rgba(253,189,84,1)] text-base md:text-xl text-black font-normal leading-[1.4] px-5 md:px-[30px] py-3 md:py-[15px] rounded-xl hover:bg-[rgba(253,189,84,0.9)] transition-colors"
+                  className="bg-[rgba(253,189,84,1)] text-base md:text-xl text-black font-normal leading-[1.4] px-5 md:px-[30px] py-3 md:py-[15px] rounded-xl hover:bg-[rgba(230,168,74,1)] transition-colors"
                   onClick={() => console.log('Get Started clicked')}
                   variants={buttonVariants}
                   whileHover={{ scale: 1.05 }}
@@ -86,7 +86,10 @@ export const Hero = () => {
                   Get Started
                 </motion.button>
                 <motion.button 
-                  className="flex items-center gap-2 text-base md:text-[19px] text-[rgba(242,151,3,1)] font-medium leading-normal md:leading-10 hover:text-[rgba(242,151,3,0.8)] transition-colors"
+                  className="flex items-center gap-2 text-base md:text-[19px] font-medium leading-normal md:leading-10 transition-colors"
+                  style={{ color: 'rgba(253,189,84,1)' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(230,168,74,1)'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(253,189,84,1)'}
                   onClick={() => console.log('Learn more clicked')}
                   variants={buttonVariants}
                   whileHover={{ scale: 1.05 }}

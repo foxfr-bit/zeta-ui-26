@@ -42,7 +42,7 @@ export const Header = () => {
           aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
         >
           {mobileMenuOpen ? (
-            <X size={24} className="text-[#F97316] hover:text-[#e05e07] transition-colors" />
+            <X size={24} className="transition-colors" style={{ color: '#FDBD54' }} />
           ) : (
             <Menu size={24} />
           )}

@@ -1,6 +1,18 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export const Footer = () => {
+  const navigate = useNavigate();
+
+  const handleResourceClick = (item: string) => {
+    if (item === 'Help Center') {
+      navigate('/help-center');
+    } else {
+      // Handle other resource links here
+      console.log(`Clicked on: ${item}`);
+    }
+  };
+
   return (
     <footer className="bg-[rgba(241,235,222,1)] self-stretch flex w-full flex-col items-center mt-20 md:mt-32 lg:mt-[159px] pt-10 md:pt-[50px] pb-6 md:pb-[31px]">
       <div className="w-full max-w-[1261px] px-2 md:px-3 lg:px-4">
@@ -12,23 +24,26 @@ export const Footer = () => {
                 alt="Zeta Logo"
                 className="aspect-[2.09] object-contain w-[120px] md:w-[134px]"
               />
-              <p className="mt-2 md:mt-[7px] md:ml-[15px] text-justify pr-4">
+              {/* <p className="mt-2 md:mt-[7px] md:ml-[15px] text-justify pr-4">
                 Zeta is a property management software that will essentially make life easier for property managers who are at the intersection of landowners/property owners and tenants.
-              </p>
+              </p> */}
             </div>
           </div>
           
           <div className="w-full md:w-[20%]">
             <div className="flex grow flex-col items-stretch text-black mt-4 md:mt-[17px]">
-              <h3 className="text-lg md:text-xl font-medium leading-normal md:leading-10">Features</h3>
-              <ul className="text-sm md:text-base font-light leading-relaxed md:leading-[27px] grid grid-cols-2 md:grid-cols-1 gap-x-4 mt-2 md:mt-[7px]">
+              <h3 className="text-lg md:text-xl font-medium leading-normal md:leading-10">Resources</h3>
+              <ul className="text-sm md:text-base font-light leading-relaxed md:leading-[27px] mt-2 md:mt-[7px]">
                 {[
-                  "Online Payments", "Tenant Screening", "Lead Tracking",
-                  "Rental Applications", "Online Leases", "Accounting",
-                  "Reports", "Maintenance Requests", "Team Management",
-                  "Rent Reporting", "Maintenance Bidding", "Rentability Report"
+                  "Zeta User Guide Brochure", 
+                  "Videos & Tutorials", 
+                  "Help Center"
                 ].map((item, index) => (
-                  <li key={index} className="hover:text-gray-600 cursor-pointer">
+                  <li 
+                    key={index} 
+                    className="hover:text-gray-600 cursor-pointer"
+                    onClick={() => handleResourceClick(item)}
+                  >
                     {item}
                   </li>
                 ))}
