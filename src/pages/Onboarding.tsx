@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Home, Users, Wrench } from 'lucide-react';
+import { Home, Users, Wrench, Building2 } from 'lucide-react';
 import { Header } from '../components/landing/Header';
 import { Footer } from '../components/landing/Footer';
 
@@ -43,12 +43,12 @@ const Onboarding = () => {
 
   const handleNext = () => {
     if (selectedRole) {
-      // Store the selected role (in a real app, this would be saved to backend/context)
+      // Store the selected role temporarily
       console.log('Selected role:', selectedRole);
-      localStorage.setItem('userRole', selectedRole);
+      localStorage.setItem('selectedRole', selectedRole);
       
-      // Navigate to home page after role selection
-      navigate('/home');
+      // Navigate to signup page with the selected role
+      navigate('/signup', { state: { role: selectedRole } });
     }
   };
 
@@ -84,7 +84,7 @@ const Onboarding = () => {
         </div>
 
         {/* Role Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 mb-12">
           {roles.map((role, index) => (
             <motion.div
               key={role.id}
@@ -92,7 +92,7 @@ const Onboarding = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 + index * 0.1, duration: 0.5 }}
               onClick={() => handleRoleSelect(role.id)}
-              className={`relative bg-white rounded-2xl p-6 cursor-pointer transition-all duration-300 ${
+              className={`relative bg-white rounded-2xl p-6 lg:px-4 cursor-pointer transition-all duration-300 w-full min-h-[264px] ${
                 selectedRole === role.id
                   ? 'ring-2 ring-offset-2 shadow-xl scale-105'
                   : 'hover:shadow-lg hover:scale-102'
@@ -126,14 +126,14 @@ const Onboarding = () => {
               )}
 
               {/* Icon */}
-              <div className="mb-4 flex justify-center">
+              <div className="mb-4 flex justify-start">
                 <div className="w-16 h-16 rounded-full bg-yellow-50 flex items-center justify-center">
                   {role.icon}
                 </div>
               </div>
 
               {/* Content */}
-              <div className="text-center">
+              <div className="text-left">
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">
                   {role.title}
                 </h3>
@@ -144,6 +144,29 @@ const Onboarding = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Property Owner Text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.7, duration: 0.5 }}
+          className="text-center mb-8"
+        >
+          <p className="text-gray-600 text-sm">
+            I'm a{' '}
+            <button
+              onClick={() => {
+                localStorage.setItem('selectedRole', 'owner');
+                navigate('/signup', { state: { role: 'owner' } });
+              }}
+              className="font-medium underline hover:no-underline transition-all"
+              style={{ color: '#FDBD54' }}
+            >
+              Property Owner
+            </button>
+            . My properties are managed by Property Managers.
+          </p>
+        </motion.div>
 
         {/* Next Button */}
         <motion.div

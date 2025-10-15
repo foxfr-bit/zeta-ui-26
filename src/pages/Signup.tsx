@@ -1,14 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Eye, EyeOff, Loader2 } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { Eye, EyeOff, Loader2, Home, Users, Wrench, Building2 } from 'lucide-react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { Header } from '../components/landing/Header';
 import { Footer } from '../components/landing/Footer';
 
 const Signup = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [selectedRole, setSelectedRole] = useState<string>('');
   const [formData, setFormData] = useState({
     email: '',
     firstName: '',
@@ -23,6 +25,43 @@ const Signup = () => {
   const [error, setError] = useState('');
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [agreeToSMS, setAgreeToSMS] = useState(false);
+
+  // Get role from navigation state or localStorage
+  useEffect(() => {
+    const roleFromState = (location.state as { role?: string })?.role;
+    const roleFromStorage = localStorage.getItem('selectedRole');
+    const role = roleFromState || roleFromStorage || '';
+    
+    if (role) {
+      setSelectedRole(role);
+    } else {
+      // If no role selected, redirect to onboarding
+      navigate('/onboarding');
+    }
+  }, [location, navigate]);
+
+  // Helper function to get role display info
+  const getRoleInfo = (roleId: string) => {
+    const roles: Record<string, { title: string; icon: React.ReactNode }> = {
+      'property-manager': {
+        title: 'Property Manager',
+        icon: <Home className="w-5 h-5" style={{ color: '#FDBD54' }} />
+      },
+      'tenant': {
+        title: 'Tenant',
+        icon: <Users className="w-5 h-5" style={{ color: '#FDBD54' }} />
+      },
+      'service-provider': {
+        title: 'Service Provider',
+        icon: <Wrench className="w-5 h-5" style={{ color: '#FDBD54' }} />
+      },
+      'owner': {
+        title: 'Owner',
+        icon: <Building2 className="w-5 h-5" style={{ color: '#FDBD54' }} />
+      }
+    };
+    return roles[roleId] || { title: '', icon: null };
+  };
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -75,10 +114,14 @@ const Signup = () => {
       // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000));
       
-      console.log('Signup successful:', formData);
+      console.log('Signup successful:', { ...formData, role: selectedRole });
       
-      // Navigate to onboarding page for first-time users to select their role
-      navigate('/onboarding');
+      // Store the user role after successful signup
+      localStorage.setItem('userRole', selectedRole);
+      localStorage.removeItem('selectedRole'); // Clean up temporary storage
+      
+      // Navigate to home page after successful signup
+      navigate('/home');
     } catch (err) {
       setError('Signup failed. Please try again.');
     } finally {
@@ -129,6 +172,31 @@ const Signup = () => {
               <h2 className="text-3xl font-semibold text-gray-900">Create your account</h2>
               <p className="text-gray-600">Enter your details to continue</p>
             </div>
+
+            {/* Selected Role Display */}
+            {selectedRole && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-yellow-50 border border-yellow-200 px-4 py-3 rounded-lg flex items-center gap-3"
+              >
+                <div className="flex items-center justify-center w-10 h-10 rounded-full bg-white">
+                  {getRoleInfo(selectedRole).icon}
+                </div>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-gray-900">
+                    Signing up as: <span style={{ color: '#FDBD54' }}>{getRoleInfo(selectedRole).title}</span>
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => navigate('/onboarding')}
+                    className="text-xs text-gray-600 hover:text-gray-800 underline"
+                  >
+                    Change role
+                  </button>
+                </div>
+              </motion.div>
+            )}
 
             {/* Error message */}
             {error && (
