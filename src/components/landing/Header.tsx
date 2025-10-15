@@ -53,7 +53,7 @@ export const Header = () => {
       <div className="hidden lg:flex self-stretch gap-[40px_48px] text-base text-black my-auto">
         <button onClick={() => navigate('/home')} className="hover:text-gray-600 transition-colors">Home</button>
         <a href="#about" className="hover:text-gray-600 transition-colors">About Us</a>
-        <a href="#services" className="hover:text-gray-600 transition-colors">Services</a>
+        <button onClick={() => navigate('/services')} className="hover:text-gray-600 transition-colors">Services</button>
         <a href="#contact" className="hover:text-gray-600 transition-colors">Contact</a>
       </div>
       
@@ -93,13 +93,15 @@ export const Header = () => {
             >
               About Us
             </a>
-            <a 
-              href="#services" 
-              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            <button 
+              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors text-left"
+              onClick={() => {
+                navigate('/services');
+                setMobileMenuOpen(false);
+              }}
             >
               Services
-            </a>
+            </button>
             <a 
               href="#contact" 
               className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors"
