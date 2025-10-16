@@ -25,9 +25,7 @@ npm install
 3️⃣ Run the development server
 npm run dev
 
-
-Your project will be available at http://localhost:5173
- (or whichever port Vite selects).
+Your project will be available at http://localhost:5173 (or whichever port Vite selects).
 
 🧱 Project Structure
 zeta-website/
