@@ -13,6 +13,15 @@ export const Footer = () => {
     }
   };
 
+  const handleAboutClick = (item: string) => {
+    if (item === 'Our Story') {
+      navigate('/about');
+    } else {
+      // Handle other about links here
+      console.log(`Clicked on: ${item}`);
+    }
+  };
+
   return (
     <footer className="bg-[rgba(241,235,222,1)] self-stretch flex w-full flex-col items-center pt-10 md:pt-[50px] pb-6 md:pb-[31px]">
       <div className="w-full max-w-[1261px] px-2 md:px-3 lg:px-4">
@@ -56,7 +65,11 @@ export const Footer = () => {
               <h3 className="text-lg md:text-xl font-medium leading-normal md:leading-10">About Zeta</h3>
               <ul className="text-sm md:text-base font-light leading-relaxed md:leading-[27px] mt-2">
                 {["Our Story", "Pricing", "Terms of Service", "Privacy Policy"].map((item, index) => (
-                  <li key={index} className="hover:text-gray-600 cursor-pointer">
+                  <li 
+                    key={index} 
+                    className="hover:text-gray-600 cursor-pointer"
+                    onClick={() => handleAboutClick(item)}
+                  >
                     {item}
                   </li>
                 ))}

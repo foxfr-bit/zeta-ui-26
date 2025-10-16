@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Header } from '../components/landing/Header';
 import { Footer } from '../components/landing/Footer';
-import { Key, Shield, TrendingUp, Heart, Target, Sparkles } from 'lucide-react';
+import { Key, Shield, TrendingUp, Heart, Target, Sparkles, AlertCircle, Users, Handshake } from 'lucide-react';
 
 const About = () => {
   const values = [
@@ -53,7 +53,7 @@ const About = () => {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 mb-6"
             >
               <div className="w-2 h-2 rounded-full" style={{ backgroundColor: '#FDBD54' }} />
-              <span className="text-sm font-medium text-gray-700">Our Story</span>
+              <span className="text-sm font-medium text-gray-700">Your Vision Unrestricted</span>
             </motion.div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
@@ -185,6 +185,91 @@ const About = () => {
                 </p>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Why Zeta? The Gaps We Fill Section */}
+      <div className="py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Why Zeta? The Gaps We Fill
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* No More Guesswork */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto" style={{ backgroundColor: '#FDBD54' }}>
+                <AlertCircle className="w-8 h-8 text-gray-900" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                No More Guesswork
+              </h3>
+              <div className="space-y-3 text-gray-700">
+                <p className="leading-relaxed">
+                  <span className="font-semibold">Before Zeta:</span> 60% of renters faced bait-and-switch scams (fake photos, sudden price hikes).
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Power to the People */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto" style={{ backgroundColor: '#FDBD54' }}>
+                <Users className="w-8 h-8 text-gray-900" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                Power to the People
+              </h3>
+              <div className="space-y-3 text-gray-700">
+                <p className="leading-relaxed">
+                  <span className="font-semibold">Before Zeta:</span> Tenants signed leases blindly; landlords struggled with empty units.
+                </p>
+                <p className="leading-relaxed">
+                  <span className="font-semibold">Our Fix:</span> Negotiation tools, lease translators (Swahili/English), and market-price insights.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* Beyond Listings */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-shadow"
+            >
+              <div className="w-16 h-16 rounded-xl flex items-center justify-center mb-6 mx-auto" style={{ backgroundColor: '#FDBD54' }}>
+                <Handshake className="w-8 h-8 text-gray-900" />
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+                Beyond Listings – A Partner for Life
+              </h3>
+              <div className="space-y-3 text-gray-700">
+                <p className="leading-relaxed">
+                  We don't just connect people; we educate (via blogs, webinars) and protect (escrow payments, legal vetting).
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
