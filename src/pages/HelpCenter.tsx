@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Search, ChevronDown, ChevronUp } from 'lucide-react';
+import { Search, ChevronDown, ChevronUp, Phone, Mail, MessageSquare, PhoneCall } from 'lucide-react';
 import { Header } from '../components/landing/Header';
 import { Footer } from '../components/landing/Footer';
 
@@ -195,6 +195,167 @@ const HelpCenter = () => {
             </button>
           </motion.div>
         </motion.div>
+      </div>
+
+      {/* Support Options Section */}
+      <div className="bg-gray-50 py-20 px-4">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Technical Support */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#FDBD54' }}>
+                <Phone className="w-10 h-10 text-gray-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Technical Support
+              </h3>
+              <p className="text-gray-600 mb-6">
+                Already using our product and experiencing technical issues?
+              </p>
+              <div className="flex items-center justify-center gap-2 text-gray-900 font-medium mb-6">
+                <Phone className="w-5 h-5" />
+                <span className="text-lg">1-737-300-9331</span>
+              </div>
+              <button 
+                className="px-8 py-3 rounded-lg font-medium transition-all border-2 hover:shadow-md"
+                style={{ 
+                  borderColor: '#FDBD54',
+                  color: '#FDBD54'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FDBD54';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FDBD54';
+                }}
+              >
+                Raise a Ticket
+              </button>
+            </motion.div>
+
+            {/* Request a Call */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#FDBD54' }}>
+                <PhoneCall className="w-10 h-10 text-gray-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Request a call
+              </h3>
+              <p className="text-gray-600 mb-12">
+                Contact Sales to get pricing information & product recommendation.
+              </p>
+              <button 
+                className="px-8 py-3 rounded-lg font-medium transition-all border-2 hover:shadow-md"
+                style={{ 
+                  borderColor: '#FDBD54',
+                  color: '#FDBD54'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FDBD54';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FDBD54';
+                }}
+              >
+                Schedule a call
+              </button>
+            </motion.div>
+
+            {/* General Inquiries */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#FDBD54' }}>
+                <MessageSquare className="w-10 h-10 text-gray-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                General Inquiries
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Have a question or want to send feedback?
+              </p>
+              <p className="text-gray-600 mb-6">
+                Email us at <span style={{ color: '#FDBD54' }}>support@zeta.co.tz</span>
+              </p>
+              <button 
+                className="px-8 py-3 rounded-lg font-medium transition-all border-2 hover:shadow-md"
+                style={{ 
+                  borderColor: '#FDBD54',
+                  color: '#FDBD54'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FDBD54';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FDBD54';
+                }}
+              >
+                Send Email
+              </button>
+            </motion.div>
+
+            {/* Sales Inquiries */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="bg-white rounded-2xl p-8 text-center hover:shadow-xl transition-shadow"
+            >
+              <div className="w-20 h-20 rounded-full mx-auto mb-6 flex items-center justify-center" style={{ backgroundColor: '#FDBD54' }}>
+                <Mail className="w-10 h-10 text-gray-900" />
+              </div>
+              <h3 className="text-2xl font-semibold text-gray-900 mb-4">
+                Sales Inquiries
+              </h3>
+              <p className="text-gray-600 mb-4">
+                Have a question to our sales team? Email us at
+              </p>
+              <p className="text-gray-600 mb-6">
+                <span style={{ color: '#FDBD54' }}>sales@zeta.co.tz</span>
+              </p>
+              <button 
+                className="px-8 py-3 rounded-lg font-medium transition-all border-2 hover:shadow-md"
+                style={{ 
+                  borderColor: '#FDBD54',
+                  color: '#FDBD54'
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#FDBD54';
+                  e.currentTarget.style.color = '#000000';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                  e.currentTarget.style.color = '#FDBD54';
+                }}
+              >
+                Send Email
+              </button>
+            </motion.div>
+          </div>
+        </div>
       </div>
 
       <Footer />

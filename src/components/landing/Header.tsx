@@ -28,11 +28,13 @@ export const Header = () => {
         : 'bg-white border-b border-transparent'
     }`}>
       <nav className="flex w-full max-w-[1275px] mx-auto items-center gap-5 font-normal leading-[1.4] flex-wrap justify-between px-2 md:px-3 lg:px-4 py-4">
-      <img
-        src="https://cdn.builder.io/api/v1/image/assets/TEMP/9690298b4295abdafb845c844373f837834a4d72?placeholderIfAbsent=true"
-        alt="Zeta Logo"
-        className="aspect-[2.48] object-contain w-[120px] md:w-[139px] self-stretch shrink-0"
-      />
+      <button onClick={() => navigate('/')} className="cursor-pointer">
+        <img
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/9690298b4295abdafb845c844373f837834a4d72?placeholderIfAbsent=true"
+          alt="Zeta Logo"
+          className="aspect-[2.48] object-contain w-[120px] md:w-[139px] self-stretch shrink-0"
+        />
+      </button>
       
       {/* Mobile menu button */}
       <div className="lg:hidden">
@@ -52,7 +54,7 @@ export const Header = () => {
       {/* Desktop navigation */}
       <div className="hidden lg:flex self-stretch gap-[40px_48px] text-base text-black my-auto">
         <button onClick={() => navigate('/home')} className="hover:text-gray-600 transition-colors">Home</button>
-        <a href="#about" className="hover:text-gray-600 transition-colors">About Us</a>
+        <button onClick={() => navigate('/about')} className="hover:text-gray-600 transition-colors">About Us</button>
         <button onClick={() => navigate('/services')} className="hover:text-gray-600 transition-colors">Services</button>
         <button onClick={() => navigate('/contact')} className="hover:text-gray-600 transition-colors">Contact</button>
       </div>
@@ -86,13 +88,15 @@ export const Header = () => {
             >
               Home
             </button>
-            <a 
-              href="#about" 
-              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
+            <button 
+              className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors text-left"
+              onClick={() => {
+                navigate('/about');
+                setMobileMenuOpen(false);
+              }}
             >
               About Us
-            </a>
+            </button>
             <button 
               className="py-2 border-b border-gray-100 hover:text-gray-600 transition-colors text-left"
               onClick={() => {

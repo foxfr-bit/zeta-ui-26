@@ -46,8 +46,8 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6" style={{ color: '#1e293b' }} />,
       title: 'Email',
-      details: 'support@zeta.com',
-      link: 'mailto:support@zeta.com',
+      details: 'support@zeta.co.tz',
+      link: 'mailto:support@zeta.co.tz',
     },
     {
       icon: <Phone className="w-6 h-6" style={{ color: '#1e293b' }} />,
